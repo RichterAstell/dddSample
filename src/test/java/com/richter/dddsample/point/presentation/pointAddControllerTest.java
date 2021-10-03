@@ -1,4 +1,4 @@
-package com.richter.dddsample.pointpresentation;
+package com.richter.dddsample.point.presentation;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

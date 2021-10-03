@@ -1,5 +1,6 @@
-package com.richter.dddsample.pointdomain;
+package com.richter.dddsample.point.application;
 
+import com.richter.dddsample.point.application.pointAddAppService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

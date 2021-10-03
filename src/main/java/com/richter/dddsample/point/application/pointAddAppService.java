@@ -1,4 +1,4 @@
-package com.richter.dddsample.pointdomain;
+package com.richter.dddsample.point.application;
 
 public class pointAddAppService {
     private static Integer POINT_RETE = 100;

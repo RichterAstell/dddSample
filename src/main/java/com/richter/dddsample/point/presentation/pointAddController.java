@@ -1,6 +1,6 @@
-package com.richter.dddsample.pointpresentation;
+package com.richter.dddsample.point.presentation;
 
-import com.richter.dddsample.pointdomain.pointAddAppService;
+import com.richter.dddsample.point.application.pointAddAppService;
 
 public class pointAddController {
     public Integer add(int cost) {
