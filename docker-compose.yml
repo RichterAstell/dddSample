@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:14.0
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: dddsample
+      POSTGRES_PASSWORD: dddsample
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
