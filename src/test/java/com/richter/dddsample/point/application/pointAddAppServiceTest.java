@@ -1,14 +1,15 @@
 package com.richter.dddsample.point.application;
 
 import com.richter.dddsample.point.application.pointAddAppService;
+import com.richter.dddsample.point.domain.HoldingPointEntity;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class pointAddAppServiceTest {
     @Test
-    public void ポイント付与のテスト() {
+    public void ポイント加算のテスト() {
         pointAddAppService appService = new pointAddAppService();
-        Integer result = appService.add(1234);
-        Assertions.assertEquals(12, result);
+        HoldingPointEntity result = appService.add(1,1234);
+        Assertions.assertEquals(12, result.getHoldingPoint());
     }
 }
