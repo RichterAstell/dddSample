@@ -7,8 +7,15 @@ public class CustomerEntity {
     private Gender gender;
     private LocalDate birthday;
 
-    public CustomerEntity(Gender gender, LocalDate birthday) {
+    public CustomerEntity(String customerId, Gender gender, LocalDate birthday) throws IllegalArgumentException {
+        this.customerId = customerId;
+        if (gender == null) {
+            throw new IllegalArgumentException("gender is require");
+        }
         this.gender = gender;
+        if (birthday == null) {
+            throw new IllegalArgumentException("birthday is require");
+        }
         this.birthday = birthday;
     }
 
