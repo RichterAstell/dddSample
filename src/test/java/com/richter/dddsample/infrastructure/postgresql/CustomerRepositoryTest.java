@@ -2,19 +2,15 @@ package com.richter.dddsample.infrastructure.postgresql;
 
 import com.richter.dddsample.customer.domain.CustomerEntity;
 import com.richter.dddsample.customer.domain.Gender;
-import org.apache.tomcat.jni.Local;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentMatchers;
 import org.mockito.Mockito;
-import org.mockito.stubbing.OngoingStubbing;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.anyString;
 
 class CustomerRepositoryTest {
 
@@ -25,7 +21,6 @@ class CustomerRepositoryTest {
         CustomerEntity customer = new CustomerEntity("1"
                 , Gender.NOT_KNOWN, birthday);
 
-        BeanPropertyRowMapper rowMapper = Mockito.mock(BeanPropertyRowMapper.class);
         JdbcTemplate template = Mockito.mock(JdbcTemplate.class);
         Mockito.when(template.queryForObject(
                         ArgumentMatchers.anyString()

@@ -1,9 +1,7 @@
 package com.richter.dddsample.point.domain;
 
-import javax.persistence.Id;
-
 public class HoldingPointEntity {
-    private String customerId;
+    private final String customerId;
     private Integer holdingPoint;
 
     public HoldingPointEntity(String customerId, Integer holdingPoint) {
