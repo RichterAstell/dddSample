@@ -1,11 +1,11 @@
 package com.richter.dddsample.point.domain;
 
 public class HoldingPointEntity {
-    private final String customerId;
+    private final Integer customerId;
     private Integer holdingPoint;
 
-    public HoldingPointEntity(String customerId, Integer holdingPoint) {
-        if (customerId == null || customerId.isEmpty()) {
+    public HoldingPointEntity(Integer customerId, Integer holdingPoint) {
+        if (customerId == null || customerId == 0) {
             throw new IllegalArgumentException("customerId is require");
         }
         this.customerId = customerId;
@@ -19,7 +19,7 @@ public class HoldingPointEntity {
         this.holdingPoint += addPoint;
     }
 
-    public String getCustomerId() {
+    public Integer getCustomerId() {
         return customerId;
     }
     public Integer getHoldingPoint() {

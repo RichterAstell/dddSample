@@ -3,11 +3,11 @@ package com.richter.dddsample.customer.domain;
 import java.time.LocalDate;
 
 public class CustomerEntity {
-    private String customerId;
+    private Integer customerId;
     private Gender gender;
     private LocalDate birthday;
 
-    public CustomerEntity(String customerId, Gender gender, LocalDate birthday) throws IllegalArgumentException {
+    public CustomerEntity(Integer customerId, Gender gender, LocalDate birthday) throws IllegalArgumentException {
         this.customerId = customerId;
         if (gender == null) {
             throw new IllegalArgumentException("gender is require");
@@ -19,7 +19,7 @@ public class CustomerEntity {
         this.birthday = birthday;
     }
 
-    public String getCustomerId() {
+    public Integer getCustomerId() {
         return customerId;
     }
     public Gender getGender() {
