@@ -5,7 +5,6 @@ import com.richter.dddsample.customer.domain.Gender;
 import org.junit.jupiter.api.Test;
 import static org.mockito.ArgumentMatchers.*;
 
-import org.mockito.ArgumentMatchers;
 import org.mockito.Mockito;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -25,7 +24,6 @@ class CustomerRepositoryTest {
                 , Gender.NOT_KNOWN, birthday);
         // モックの作成
         JdbcTemplate template = Mockito.mock(JdbcTemplate.class);
-        RowMapper<CustomerEntity> rowMapper = new BeanPropertyRowMapper(CustomerEntity.class);
 
         Mockito.when(template.queryForObject(
                         anyString()
