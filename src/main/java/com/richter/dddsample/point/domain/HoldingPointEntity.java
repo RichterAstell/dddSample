@@ -1,6 +1,7 @@
 package com.richter.dddsample.point.domain;
 
 public class HoldingPointEntity {
+    private static Integer RATE = 100;
     private final Integer customerId;
     private Integer holdingPoint;
 
@@ -24,5 +25,9 @@ public class HoldingPointEntity {
     }
     public Integer getHoldingPoint() {
         return holdingPoint;
+    }
+
+    public void addHoldingPointByCost(int cost) {
+        this.holdingPoint += cost / RATE;
     }
 }

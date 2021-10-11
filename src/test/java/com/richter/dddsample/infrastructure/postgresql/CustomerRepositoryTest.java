@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 import static org.mockito.ArgumentMatchers.*;
 
 import org.mockito.Mockito;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
