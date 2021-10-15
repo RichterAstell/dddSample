@@ -3,7 +3,9 @@ package com.richter.dddsample.point.application;
 import com.richter.dddsample.point.domain.HoldingPointEntity;
 import com.richter.dddsample.point.domain.IHoldingPointRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class pointAddAppService {
     private final IHoldingPointRepository holdingPointRepository;
 
@@ -21,7 +23,11 @@ public class pointAddAppService {
         } else {
             holdingPoint = new HoldingPointEntity(customerId, cost/100);
         }
+        // TODO: ポイント付与履歴を作成
+
         // 保有ポイントを保存
-        return this.holdingPointRepository.save(holdingPoint);
+        this.holdingPointRepository.save(holdingPoint);
+
+        return holdingPoint;
     }
 }

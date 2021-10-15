@@ -1,8 +1,13 @@
 package com.richter.dddsample.customer.domain;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.time.LocalDate;
 
 public class CustomerEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer customerId;
     private Gender gender;
     private LocalDate birthday;

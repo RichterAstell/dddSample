@@ -1,9 +1,22 @@
 package com.richter.dddsample.point.domain;
 
+
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "holding_point")
 public class HoldingPointEntity {
     private static Integer RATE = 100;
-    private final Integer customerId;
+
+    @Id
+    @Column(name = "customer_id" ,nullable = false)
+    private Integer customerId;
+    @Column(name = "holding_point" ,nullable = false)
     private Integer holdingPoint;
+
+    public HoldingPointEntity() {
+    }
 
     public HoldingPointEntity(Integer customerId, Integer holdingPoint) {
         if (customerId == null || customerId == 0) {
@@ -20,14 +33,23 @@ public class HoldingPointEntity {
         this.holdingPoint += addPoint;
     }
 
+    public void addHoldingPointByCost(int cost) {
+        this.holdingPoint += cost / RATE;
+    }
+
+    public void setCustomerId(Integer customerId) {
+        this.customerId = customerId;
+    }
+
+    public void setHoldingPoint(Integer holdingPoint) {
+        this.holdingPoint = holdingPoint;
+    }
+
     public Integer getCustomerId() {
         return customerId;
     }
+
     public Integer getHoldingPoint() {
         return holdingPoint;
-    }
-
-    public void addHoldingPointByCost(int cost) {
-        this.holdingPoint += cost / RATE;
     }
 }

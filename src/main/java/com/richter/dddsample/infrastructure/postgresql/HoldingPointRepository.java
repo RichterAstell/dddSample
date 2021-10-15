@@ -10,7 +10,9 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class HoldingPointRepository implements IHoldingPointRepository {
 
     private final JdbcTemplate jdbcTemplate;
@@ -21,24 +23,23 @@ public class HoldingPointRepository implements IHoldingPointRepository {
     }
 
     @Override
-    public HoldingPointEntity save(HoldingPointEntity holdingPoint) {
+    public Integer save(HoldingPointEntity holdingPoint) {
+        holdingPoint.setCustomerId(2);
         // 実行する SQL を組み立てる
         SqlParameterSource param = new BeanPropertySqlParameterSource(holdingPoint);
         SimpleJdbcInsert insert =
                 new SimpleJdbcInsert(jdbcTemplate)
-                        .withTableName("holdingPoint")
-                        .usingGeneratedKeyColumns("customerId");
+                        .withTableName("holding_point");
         // SQL を実行して、AUTO_INCREMENT の値を取得する
-        Number key = insert.executeAndReturnKey(param);
+        Integer rows = insert.execute(param);
 
-        return new HoldingPointEntity(key.intValue()
-                , holdingPoint.getHoldingPoint());
+        return rows;
     }
 
     @Override
     public HoldingPointEntity findByCustomerId(int customerId) {
         // 実行する SQL を組み立てる
-        String query = "select * from holdingPoint where customerId = ?";
+        String query = "select * from holding_point where customer_id = ?";
 
         RowMapper<HoldingPointEntity> rowMapper = new BeanPropertyRowMapper(HoldingPointEntity.class);
         HoldingPointEntity holdingPoint = this.jdbcTemplate.queryForObject(query, rowMapper, customerId);
