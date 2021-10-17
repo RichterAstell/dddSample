@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import static org.mockito.ArgumentMatchers.*;
 
 import org.mockito.Mockito;
+import org.springframework.ui.Model;
 
 public class pointAddControllerTest {
     @Test
@@ -16,10 +17,11 @@ public class pointAddControllerTest {
         pointAddAppService service = Mockito.mock(pointAddAppService.class);
         Mockito.when(service.add(anyInt(), anyInt()))
                 .thenReturn(holdingPoint);
+        Model model = Mockito.mock(Model.class);
         // controller の作成
         pointAddController controller = new pointAddController(service);
         // 実行
-        HoldingPointEntity response = controller.add(1, 1234);
-        Assertions.assertEquals(112, response.getHoldingPoint());
+        String response = controller.add(model);
+        Assertions.assertEquals("point/add", response);
     }
 }

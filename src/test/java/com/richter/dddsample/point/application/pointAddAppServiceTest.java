@@ -13,13 +13,12 @@ public class pointAddAppServiceTest {
     @Test
     public void 新規ポイント加算のテスト() {
         // 検証データの作成
-        HoldingPointEntity entity = new HoldingPointEntity(1, 12);
         // モックの作成
         IHoldingPointRepository repository = Mockito.mock(IHoldingPointRepository.class);
         Mockito.when(repository.findByCustomerId(anyInt()))
                 .thenReturn(null);
         Mockito.when(repository.save(any(HoldingPointEntity.class)))
-                .thenReturn(entity);
+                .thenReturn(1);
         // テスト対象の作成
         pointAddAppService appService = new pointAddAppService(repository);
         // 実行
