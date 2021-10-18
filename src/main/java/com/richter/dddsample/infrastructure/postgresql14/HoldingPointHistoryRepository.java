@@ -1,4 +1,4 @@
-package com.richter.dddsample.infrastructure.postgresql;
+package com.richter.dddsample.infrastructure.postgresql14;
 
 import com.richter.dddsample.point.domain.HoldingPointHistoryEntity;
 import com.richter.dddsample.point.domain.IHoldingPointHistoryRepository;

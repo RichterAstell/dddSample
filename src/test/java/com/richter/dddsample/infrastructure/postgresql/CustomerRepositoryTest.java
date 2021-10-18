@@ -2,6 +2,7 @@ package com.richter.dddsample.infrastructure.postgresql;
 
 import com.richter.dddsample.customer.domain.CustomerEntity;
 import com.richter.dddsample.customer.domain.Gender;
+import com.richter.dddsample.infrastructure.postgresql14.CustomerRepository;
 import org.junit.jupiter.api.Test;
 import static org.mockito.ArgumentMatchers.*;
 

@@ -1,5 +1,7 @@
 package com.richter.dddsample.infrastructure.postgresql;
 
+import com.richter.dddsample.infrastructure.postgresql14.HoldingPointHistoryRepository;
+import com.richter.dddsample.infrastructure.postgresql14.HoldingPointRepository;
 import com.richter.dddsample.point.domain.HoldingPointEntity;
 import com.richter.dddsample.point.domain.HoldingPointHistoryEntity;
 import com.richter.dddsample.point.domain.IHoldingPointHistoryRepository;
@@ -9,6 +11,8 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.*;
@@ -40,11 +44,11 @@ class HoldingPointHistoryRepositoryTest {
         HoldingPointEntity holdingPoint = new HoldingPointEntity(1, 100);
 
         // モックの作成
-        JdbcTemplate template = Mockito.mock(JdbcTemplate.class);
+        NamedParameterJdbcTemplate template = Mockito.mock(NamedParameterJdbcTemplate.class);
         Mockito.when(template.queryForObject(
                         anyString()
-                        , any(RowMapper.class)
-                        , anyInt()))
+                        , any(MapSqlParameterSource.class)
+                        , any(RowMapper.class)))
                 .thenReturn(holdingPoint);
 
         // テスト対象の作成

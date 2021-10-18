@@ -1,6 +1,6 @@
 package com.richter.dddsample.point.application;
 
-import com.richter.dddsample.infrastructure.postgresql.HoldingPointRepository;
+import com.richter.dddsample.infrastructure.postgresql14.HoldingPointRepository;
 import com.richter.dddsample.point.domain.HoldingPointEntity;
 import com.richter.dddsample.point.domain.IHoldingPointRepository;
 import org.junit.jupiter.api.Assertions;
@@ -18,7 +18,7 @@ public class pointAddAppServiceTest {
         Mockito.when(repository.findByCustomerId(anyInt()))
                 .thenReturn(null);
         Mockito.when(repository.save(any(HoldingPointEntity.class)))
-                .thenReturn(1);
+                .thenReturn(null);
         // テスト対象の作成
         pointAddAppService appService = new pointAddAppService(repository);
         // 実行
@@ -35,7 +35,7 @@ public class pointAddAppServiceTest {
         Mockito.when(repository.findByCustomerId(anyInt()))
                 .thenReturn(oldEntity);
         Mockito.when(repository.save(any(HoldingPointEntity.class)))
-                .thenReturn(1);
+                .thenReturn(null);
         // テスト対象の作成
         pointAddAppService appService = new pointAddAppService(repository);
         // 実行
