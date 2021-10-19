@@ -20,7 +20,7 @@ public class pointAddAppServiceTest {
         Mockito.when(repository.save(any(HoldingPointEntity.class)))
                 .thenReturn(null);
         // テスト対象の作成
-        pointAddAppService appService = new pointAddAppService(repository);
+        PointAddAppService appService = new PointAddAppService(repository);
         // 実行
         HoldingPointEntity result = appService.add(1,1234);
         // 検証
@@ -37,7 +37,7 @@ public class pointAddAppServiceTest {
         Mockito.when(repository.save(any(HoldingPointEntity.class)))
                 .thenReturn(null);
         // テスト対象の作成
-        pointAddAppService appService = new pointAddAppService(repository);
+        PointAddAppService appService = new PointAddAppService(repository);
         // 実行
         HoldingPointEntity result = appService.add(1,1234);
         // 検証
