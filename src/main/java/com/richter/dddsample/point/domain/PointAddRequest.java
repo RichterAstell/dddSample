@@ -1,4 +1,4 @@
-package com.richter.dddsample.point.application;
+package com.richter.dddsample.point.domain;
 
 public record PointAddRequest(
         Integer customerId,

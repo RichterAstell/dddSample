@@ -1,6 +1,6 @@
 package com.richter.dddsample.point.presentation;
 
-import com.richter.dddsample.point.application.PointAddRequest;
+import com.richter.dddsample.point.domain.PointAddRequest;
 import com.richter.dddsample.point.application.PointAddAppService;
 import com.richter.dddsample.point.domain.HoldingPointEntity;
 import org.junit.jupiter.api.Assertions;
